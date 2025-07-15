@@ -1,0 +1,859 @@
+openapi: 3.0.3
+info:
+  title: throat
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/definitions:
+    get:
+      summary: 'GET definitions'
+      operationId: gETDefinitions
+      description: 'Displays a full list of the stored resources with pagination.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"word_id\": 1,\n\"word_type_id\": 1,\n\"definition\": \"Test\",\n\"user_id\": 1,\n\"appropriate\": 0,\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n},\n},\n{\n\"id\": 2,\n\"word_id\": 2,\n\"word_type_id\": 2,\n\"definition\": \"New\",\n\"user_id\": 1,\n\"appropriate\": 0,\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n}"
+      tags:
+        - /definitions
+      security: []
+    post:
+      summary: 'POST definition'
+      operationId: pOSTDefinition
+      description: 'Stores a newly created resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"created\": {\n\"definition\": \"Test\",\n\"word_id\": 1,\n\"word_type_id\": 1,\n\"user_id\": 1,\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n\"id\": 1\n}\n}"
+      tags:
+        - /definitions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                definition:
+                  type: string
+                  description: ''
+                  example: quia
+                word_id:
+                  type: string
+                  description: ''
+                  example: dolorum
+                word_type_id:
+                  type: string
+                  description: ''
+                  example: quia
+                user_id:
+                  type: string
+                  description: ''
+                  example: illum
+              required:
+                - definition
+                - word_id
+                - word_type_id
+                - user_id
+      security: []
+  '/api/definitions/{id}':
+    get:
+      summary: 'GET definition'
+      operationId: gETDefinition
+      description: 'Displays a single specified resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  word_id: 1
+                  word_type_id: 1
+                  definition: Test
+                  user_id: 1
+                  appropriate: 0
+                  created_at: '2023-12-05T12:07:15.000000Z'
+                  updated_at: '2023-12-06T06:07:26.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  word_id:
+                    type: integer
+                    example: 1
+                  word_type_id:
+                    type: integer
+                    example: 1
+                  definition:
+                    type: string
+                    example: Test
+                  user_id:
+                    type: integer
+                    example: 1
+                  appropriate:
+                    type: integer
+                    example: 0
+                  created_at:
+                    type: string
+                    example: '2023-12-05T12:07:15.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2023-12-06T06:07:26.000000Z'
+      tags:
+        - /definitions
+      security: []
+    put:
+      summary: 'PATCH definition'
+      operationId: pATCHDefinition
+      description: 'Updates a single specified resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  updated:
+                    id: 28
+                    word_id: '4'
+                    word_type_id: 1
+                    definition: 'New Test'
+                    user_id: 1
+                    appropriate: 0
+                    created_at: '2024-01-19T07:46:21.000000Z'
+                    updated_at: '2024-01-19T07:51:03.000000Z'
+                properties:
+                  updated:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 28
+                      word_id:
+                        type: string
+                        example: '4'
+                      word_type_id:
+                        type: integer
+                        example: 1
+                      definition:
+                        type: string
+                        example: 'New Test'
+                      user_id:
+                        type: integer
+                        example: 1
+                      appropriate:
+                        type: integer
+                        example: 0
+                      created_at:
+                        type: string
+                        example: '2024-01-19T07:46:21.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-19T07:51:03.000000Z'
+      tags:
+        - /definitions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                definition:
+                  type: string
+                  description: ''
+                  example: eius
+                word_id:
+                  type: string
+                  description: ''
+                  example: sint
+              required:
+                - definition
+                - word_id
+      security: []
+    delete:
+      summary: 'DELETE word'
+      operationId: dELETEWord
+      description: 'Removes a single specified resource from storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  deleted:
+                    id: 28
+                    word_id: '4'
+                    word_type_id: 1
+                    definition: 'New Test'
+                    user_id: 1
+                    appropriate: 0
+                    created_at: '2024-01-19T07:46:21.000000Z'
+                    updated_at: '2024-01-19T07:51:03.000000Z'
+                properties:
+                  deleted:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 28
+                      word_id:
+                        type: string
+                        example: '4'
+                      word_type_id:
+                        type: integer
+                        example: 1
+                      definition:
+                        type: string
+                        example: 'New Test'
+                      user_id:
+                        type: integer
+                        example: 1
+                      appropriate:
+                        type: integer
+                        example: 0
+                      created_at:
+                        type: string
+                        example: '2024-01-19T07:46:21.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-19T07:51:03.000000Z'
+      tags:
+        - /definitions
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the definition.'
+        example: cum
+        required: true
+        schema:
+          type: string
+  /api/auth/login:
+    post:
+      summary: ''
+      operationId: postApiAuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Authentication management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: luisa.kris@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: eaque
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiAuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Authentication management'
+      security: []
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/words:
+    get:
+      summary: 'GET words'
+      operationId: gETWords
+      description: 'Displays a full list of the stored resources with pagination.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"name\": \"FTP\",\n\"word_type_id\": 16,\n\"user_id\": 1,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\"\n},\n{\n\"id\": 2,\n\"name\": \"IBM\",\n\"word_type_id\": 16,\n\"user_id\": 1,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\"\n},\n]"
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'POST word'
+      operationId: pOSTWord
+      description: 'Stores a newly created resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"created\": {\n\"id\": 18\n\"name\": \"Digital Audio Workstation\",\n\"word_type_id\": 16,\n\"user_id\": 1,\n\"updated_at\": \"2024-01-19T08:22:01.000000Z\",\n\"created_at\": \"2024-01-19T08:22:01.000000Z\",\n}\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: voluptas
+                word_type_id:
+                  type: string
+                  description: ''
+                  example: natus
+                user_id:
+                  type: string
+                  description: ''
+                  example: eius
+              required:
+                - name
+                - word_type_id
+                - user_id
+      security: []
+  '/api/words/{id}':
+    get:
+      summary: 'GET word'
+      operationId: gETWord
+      description: 'Displays a single specified resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"id\": 1,\n\"word_id\": 1,\n\"word_type_id\": 16,\n\"definition\": \"File Transfer Protocol\",\n\"user_id\": 1,\n\"appropriate\": 0,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\"\n},"
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'PATCH word'
+      operationId: pATCHWord
+      description: 'Updates a single specified resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"updated\": {\n\"id\": 18\n\"name\": \"Digital Audio Workspace\",\n\"word_type_id\": 18,\n\"user_id\": 1,\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\",\n\"created_at\": \"2024-01-19T08:24:54.000000Z\",\n}\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: illum
+                word_type_id:
+                  type: string
+                  description: ''
+                  example: sint
+              required:
+                - name
+                - word_type_id
+      security: []
+    delete:
+      summary: 'DELETE word'
+      operationId: dELETEWord
+      description: 'Removes a single specified resource from storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"deleted\": {\n\"id\": 18\n\"name\": \"Digital Audio Workspace\",\n\"word_type_id\": 18,\n\"user_id\": 1,\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\",\n\"created_at\": \"2024-01-19T08:24:54.000000Z\",\n}\n}"
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the word.'
+        example: laudantium
+        required: true
+        schema:
+          type: string
+  /api/wordtypes:
+    get:
+      summary: 'GET wordtypes'
+      operationId: gETWordtypes
+      description: 'Displays a full list of the stored resources with pagination.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"code\": \"TS\",\n\"name\": \"Test\",\n\"created_at\": \"2023-12-06T09:19:36.000000Z\",\n\"updated_at\": \"2024-01-19T05:06:42.000000Z\"\n},\n{\n\"id\": 11,\n\"code\": \"AC\",\n\"name\": \"Acronym\",\n\"created_at\": \"2023-12-06T09:19:36.000000Z\",\n\"updated_at\": \"2023-12-06T09:19:36.000000Z\"\n}\n]"
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'POST wordtype'
+      operationId: pOSTWordtype
+      description: 'Stores a newly created resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"created\": {\n\"code\": \"TS\",\n\"name\": \"Test\",\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n\"id\": 1\n}\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: 'Must be at least 2 characters.'
+                  example: sirbavultpqsuungggnne
+                name:
+                  type: string
+                  description: ''
+                  example: omnis
+                user_id:
+                  type: string
+                  description: ''
+                  example: deleniti
+              required:
+                - code
+                - name
+                - user_id
+      security: []
+  '/api/wordtypes/{id}':
+    get:
+      summary: 'GET wordtype'
+      operationId: gETWordtype
+      description: 'Displays a single specified resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  code: TS
+                  name: Test
+                  created_at: '2023-12-05T12:07:15.000000Z'
+                  updated_at: '2023-12-06T06:07:26.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  code:
+                    type: string
+                    example: TS
+                  name:
+                    type: string
+                    example: Test
+                  created_at:
+                    type: string
+                    example: '2023-12-05T12:07:15.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2023-12-06T06:07:26.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'PATCH wordtype'
+      operationId: pATCHWordtype
+      description: 'Updates a single specified resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"updated\": {\n\"code\": \"TS\",\n\"name\": \"New Test\",\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n\"id\": 1\n}\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: ''
+                  example: quidem
+                name:
+                  type: string
+                  description: 'Must not be greater than 64 characters.'
+                  example: riwhxfatizumlnveownwmxh
+              required:
+                - code
+                - name
+      security: []
+    delete:
+      summary: 'DELETE wordtype'
+      operationId: dELETEWordtype
+      description: 'Removes a single specified resource from storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"deleted\": {\n\"id\": 1\n\"code\": \"TS\",\n\"name\": \"New Test\",\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n}\n}"
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the wordtype.'
+        example: ipsum
+        required: true
+        schema:
+          type: string
+  /api/definitionratings:
+    get:
+      summary: 'GET definitionratings'
+      operationId: gETDefinitionratings
+      description: 'Displays a full list of the stored resources with pagination.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"definition_id\": 1,\n\"rating_id\": 1,\n\"user_id\": 1,\n\"value\": 1,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\"\n}\n],\n}"
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'POST definitionrating'
+      operationId: pOSTDefinitionrating
+      description: 'Stores a newly created resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  created:
+                    definition_id: 6
+                    rating_id: 7
+                    value: 6
+                    user_id: 1
+                    updated_at: '2024-01-19T09:12:15.000000Z'
+                    created_at: '2024-01-19T09:12:15.000000Z'
+                properties:
+                  created:
+                    type: object
+                    properties:
+                      definition_id:
+                        type: integer
+                        example: 6
+                      rating_id:
+                        type: integer
+                        example: 7
+                      value:
+                        type: integer
+                        example: 6
+                      user_id:
+                        type: integer
+                        example: 1
+                      updated_at:
+                        type: string
+                        example: '2024-01-19T09:12:15.000000Z'
+                      created_at:
+                        type: string
+                        example: '2024-01-19T09:12:15.000000Z'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                definition_id:
+                  type: string
+                  description: ''
+                  example: vel
+                rating_id:
+                  type: string
+                  description: ''
+                  example: atque
+                value:
+                  type: string
+                  description: ''
+                  example: sint
+              required:
+                - definition_id
+                - rating_id
+                - value
+      security: []
+  '/api/definitionratings/{id}':
+    get:
+      summary: 'GET definitionrating'
+      operationId: gETDefinitionrating
+      description: 'Displays a single specified resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  definition_id: 1
+                  rating_id: 1
+                  user_id: 1
+                  value: 1
+                  created_at: '2024-01-19T08:09:48.000000Z'
+                  updated_at: '2024-01-19T08:09:48.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  definition_id:
+                    type: integer
+                    example: 1
+                  rating_id:
+                    type: integer
+                    example: 1
+                  user_id:
+                    type: integer
+                    example: 1
+                  value:
+                    type: integer
+                    example: 1
+                  created_at:
+                    type: string
+                    example: '2024-01-19T08:09:48.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2024-01-19T08:09:48.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'PATCH definitionrating'
+      operationId: pATCHDefinitionrating
+      description: 'Updates a single specified resource in storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  updated:
+                    id: 1
+                    definition_id: 1
+                    rating_id: 1
+                    user_id: 1
+                    value: 4
+                    created_at: '2024-01-19T08:09:48.000000Z'
+                    updated_at: '2024-01-19T09:16:37.000000Z'
+                properties:
+                  updated:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      definition_id:
+                        type: integer
+                        example: 1
+                      rating_id:
+                        type: integer
+                        example: 1
+                      user_id:
+                        type: integer
+                        example: 1
+                      value:
+                        type: integer
+                        example: 4
+                      created_at:
+                        type: string
+                        example: '2024-01-19T08:09:48.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-19T09:16:37.000000Z'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: string
+                  description: ''
+                  example: voluptates
+              required:
+                - value
+      security: []
+    delete:
+      summary: 'DELETE definitionrating'
+      operationId: dELETEDefinitionrating
+      description: 'Removes a single specified resource from storage.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  deleted:
+                    id: 1
+                    definition_id: 1
+                    rating_id: 1
+                    user_id: 1
+                    value: 4
+                    created_at: '2024-01-19T08:09:48.000000Z'
+                    updated_at: '2024-01-19T09:16:37.000000Z'
+                properties:
+                  deleted:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      definition_id:
+                        type: integer
+                        example: 1
+                      rating_id:
+                        type: integer
+                        example: 1
+                      user_id:
+                        type: integer
+                        example: 1
+                      value:
+                        type: integer
+                        example: 4
+                      created_at:
+                        type: string
+                        example: '2024-01-19T08:09:48.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-19T09:16:37.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the definitionrating.'
+        example: sit
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: /definitions
+    description: ''
+  -
+    name: 'Authentication management'
+    description: ''
+  -
+    name: Endpoints
+    description: ''

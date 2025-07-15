@@ -1,0 +1,967 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "throat",
+        "_postman_id": "b4bd8373-0225-4fd6-bc04-f8fe03df65e2",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "\/definitions",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET definitions",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitions"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Displays a full list of the stored resources with pagination.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"word_id\": 1,\n\"word_type_id\": 1,\n\"definition\": \"Test\",\n\"user_id\": 1,\n\"appropriate\": 0,\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n},\n},\n{\n\"id\": 2,\n\"word_id\": 2,\n\"word_type_id\": 2,\n\"definition\": \"New\",\n\"user_id\": 1,\n\"appropriate\": 0,\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET definition",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "cum",
+                                    "description": "The ID of the definition."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Displays a single specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"id\": 1,\n\"word_id\": 1,\n\"word_type_id\": 1,\n\"definition\": \"Test\",\n\"user_id\": 1,\n\"appropriate\": 0,\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST definition",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitions"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"definition\":\"quia\",\"word_id\":\"dolorum\",\"word_type_id\":\"quia\",\"user_id\":\"illum\"}"
+                        },
+                        "description": "Stores a newly created resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"created\": {\n\"definition\": \"Test\",\n\"word_id\": 1,\n\"word_type_id\": 1,\n\"user_id\": 1,\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n\"id\": 1\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PATCH definition",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "distinctio",
+                                    "description": "The ID of the definition."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"definition\":\"eius\",\"word_id\":\"sint\"}"
+                        },
+                        "description": "Updates a single specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"updated\": {\n\"id\": 28,\n\"word_id\": \"4\",\n\"word_type_id\": 1,\n\"definition\": \"New Test\",\n\"user_id\": 1,\n\"appropriate\": 0,\n\"created_at\": \"2024-01-19T07:46:21.000000Z\",\n\"updated_at\": \"2024-01-19T07:51:03.000000Z\"\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE word",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "non",
+                                    "description": "The ID of the definition."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Removes a single specified resource from storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"deleted\": {\n\"id\": 28,\n\"word_id\": \"4\",\n\"word_type_id\": 1,\n\"definition\": \"New Test\",\n\"user_id\": 1,\n\"appropriate\": 0,\n\"created_at\": \"2024-01-19T07:46:21.000000Z\",\n\"updated_at\": \"2024-01-19T07:51:03.000000Z\"\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Authentication management",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST api\/auth\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"luisa.kris@example.org\",\"password\":\"eaque\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/auth\/logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET words",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/words",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/words"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Displays a full list of the stored resources with pagination.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"name\": \"FTP\",\n\"word_type_id\": 16,\n\"user_id\": 1,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\"\n},\n{\n\"id\": 2,\n\"name\": \"IBM\",\n\"word_type_id\": 16,\n\"user_id\": 1,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\"\n},\n]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET word",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/words\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/words\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "laudantium",
+                                    "description": "The ID of the word."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Displays a single specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"id\": 1,\n\"word_id\": 1,\n\"word_type_id\": 16,\n\"definition\": \"File Transfer Protocol\",\n\"user_id\": 1,\n\"appropriate\": 0,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\"\n},",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST word",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/words",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/words"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"voluptas\",\"word_type_id\":\"natus\",\"user_id\":\"eius\"}"
+                        },
+                        "description": "Stores a newly created resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"created\": {\n\"id\": 18\n\"name\": \"Digital Audio Workstation\",\n\"word_type_id\": 16,\n\"user_id\": 1,\n\"updated_at\": \"2024-01-19T08:22:01.000000Z\",\n\"created_at\": \"2024-01-19T08:22:01.000000Z\",\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PATCH word",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/words\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/words\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "aut",
+                                    "description": "The ID of the word."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"illum\",\"word_type_id\":\"sint\"}"
+                        },
+                        "description": "Updates a single specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"updated\": {\n\"id\": 18\n\"name\": \"Digital Audio Workspace\",\n\"word_type_id\": 18,\n\"user_id\": 1,\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\",\n\"created_at\": \"2024-01-19T08:24:54.000000Z\",\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE word",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/words\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/words\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "dolorem",
+                                    "description": "The ID of the word."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Removes a single specified resource from storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"deleted\": {\n\"id\": 18\n\"name\": \"Digital Audio Workspace\",\n\"word_type_id\": 18,\n\"user_id\": 1,\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\",\n\"created_at\": \"2024-01-19T08:24:54.000000Z\",\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET wordtypes",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/wordtypes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/wordtypes"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Displays a full list of the stored resources with pagination.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"code\": \"TS\",\n\"name\": \"Test\",\n\"created_at\": \"2023-12-06T09:19:36.000000Z\",\n\"updated_at\": \"2024-01-19T05:06:42.000000Z\"\n},\n{\n\"id\": 11,\n\"code\": \"AC\",\n\"name\": \"Acronym\",\n\"created_at\": \"2023-12-06T09:19:36.000000Z\",\n\"updated_at\": \"2023-12-06T09:19:36.000000Z\"\n}\n]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST wordtype",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/wordtypes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/wordtypes"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"code\":\"sirbavultpqsuungggnne\",\"name\":\"omnis\",\"user_id\":\"deleniti\"}"
+                        },
+                        "description": "Stores a newly created resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"created\": {\n\"code\": \"TS\",\n\"name\": \"Test\",\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n\"id\": 1\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET wordtype",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/wordtypes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/wordtypes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "ipsum",
+                                    "description": "The ID of the wordtype."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Displays a single specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"id\": 1,\n\"code\": \"TS\",\n\"name\": \"Test\",\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PATCH wordtype",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/wordtypes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/wordtypes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "magnam",
+                                    "description": "The ID of the wordtype."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"code\":\"quidem\",\"name\":\"riwhxfatizumlnveownwmxh\"}"
+                        },
+                        "description": "Updates a single specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"updated\": {\n\"code\": \"TS\",\n\"name\": \"New Test\",\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n\"id\": 1\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE wordtype",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/wordtypes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/wordtypes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "qui",
+                                    "description": "The ID of the wordtype."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Removes a single specified resource from storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"deleted\": {\n\"id\": 1\n\"code\": \"TS\",\n\"name\": \"New Test\",\n\"created_at\": \"2023-12-05T12:07:15.000000Z\",\n\"updated_at\": \"2023-12-06T06:07:26.000000Z\"\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET definitionratings",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitionratings",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitionratings"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Displays a full list of the stored resources with pagination.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"definition_id\": 1,\n\"rating_id\": 1,\n\"user_id\": 1,\n\"value\": 1,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\"\n}\n],\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST definitionrating",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitionratings",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitionratings"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"definition_id\":\"vel\",\"rating_id\":\"atque\",\"value\":\"sint\"}"
+                        },
+                        "description": "Stores a newly created resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"created\": {\n\"definition_id\": 6,\n\"rating_id\": 7,\n\"value\": 6,\n\"user_id\": 1,\n\"updated_at\": \"2024-01-19T09:12:15.000000Z\",\n\"created_at\": \"2024-01-19T09:12:15.000000Z\"\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET definitionrating",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitionratings\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitionratings\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "sit",
+                                    "description": "The ID of the definitionrating."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Displays a single specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"id\": 1,\n\"definition_id\": 1,\n\"rating_id\": 1,\n\"user_id\": 1,\n\"value\": 1,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T08:09:48.000000Z\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PATCH definitionrating",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitionratings\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitionratings\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "qui",
+                                    "description": "The ID of the definitionrating."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"value\":\"voluptates\"}"
+                        },
+                        "description": "Updates a single specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"updated\": {\n\"id\": 1,\n\"definition_id\": 1,\n\"rating_id\": 1,\n\"user_id\": 1,\n\"value\": 4,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T09:16:37.000000Z\"\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE definitionrating",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/definitionratings\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/definitionratings\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "debitis",
+                                    "description": "The ID of the definitionrating."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Removes a single specified resource from storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"deleted\": {\n\"id\": 1,\n\"definition_id\": 1,\n\"rating_id\": 1,\n\"user_id\": 1,\n\"value\": 4,\n\"created_at\": \"2024-01-19T08:09:48.000000Z\",\n\"updated_at\": \"2024-01-19T09:16:37.000000Z\"\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
